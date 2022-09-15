@@ -1,18 +1,23 @@
 import "./App.css";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Home/Header/Header";
+import About from "./Components/About/About";
+import Footer from "./Components/Home/Footer/Footer";
+import { Route, Routes } from "react-router-dom";
+import Favorite from "./Components/Favorite/Favorite";
+import Home from "./Components/Home/Home/Home";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   return (
     <div>
       <Header></Header>
-      <h1 className="text-center my-10 border-2 border-black w-2/4 mx-auto rounded-md text-xl font-semibold bg-red-500 text-white py-2">
-        My name is Rayhan
-      </h1>
-        <button className="mx-auto block cursor-pointer rounded-md bg-gray-800 px-4 py-3 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-900">
-          Button
-        </button>
-        <Footer></Footer>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/favorite" element={<Favorite></Favorite>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }
